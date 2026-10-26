@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05080f" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <title>SKYFORGE 无人机拆解实验室 · Drone Disassembly Lab</title>
+  <script type="module" crossorigin src="./assets/index-C96FMnIg.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DON-gvJZ.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">SKYFORGE<span>无人机拆解实验室</span></div>
+    <div class="tag">概念演示 · Concept Demo</div>
+  </header>
+  <main class="stage">
+    <div id="viewport" class="viewport" aria-label="3D 无人机视图">
+      <div id="loading" class="loading" role="status">
+        <div class="spinner" aria-hidden="true"></div>
+        <p id="loading-text">正在载入机体…</p>
+      </div>
+    </div>
+    <div id="ui-panel">
+      <aside id="part-rail" class="rail">
+        <div class="section">
+          <div class="section-head"><span>型号</span></div>
+          <div id="model-switch" class="models" role="radiogroup" aria-label="型号"></div>
+        </div>
+        <div class="controls" role="group" aria-label="视角控制">
+          <button type="button" id="btn-reset" class="btn">重置视角</button>
+          <button type="button" id="btn-auto" class="btn" aria-pressed="false">自动旋转</button>
+        </div>
+        <div class="section">
+          <div class="section-head">
+            <span>部件</span>
+            <button type="button" id="btn-show-all" class="linkish">全部显示</button>
+          </div>
+          <div id="part-tree" class="tree"></div>
+          <button type="button" class="linkish focus-clear" data-focus="" aria-pressed="false">取消聚焦</button>
+        </div>
+      </aside>
+      <aside id="detail-rail" class="rail">
+        <p class="eyebrow">拆解实验室</p>
+        <h1 id="model-title">SF-X500 工业版</h1>
+        <p id="model-blurb" class="muted">拖动旋转，滚轮或双指缩放。点选部件查看说明。</p>
+        <p id="model-warn" class="warn" hidden></p>
+        <p id="detail-empty" class="muted empty">从左侧列表或机体上点选一个部件。</p>
+        <section id="detail" class="detail" hidden>
+          <div class="section-head">
+            <span>部件详情</span>
+            <button type="button" id="detail-clear" class="linkish">关闭</button>
+          </div>
+          <p class="eyebrow" id="detail-cat"></p>
+          <h2 id="detail-name"></h2>
+          <p class="en" id="detail-en"></p>
+          <p class="muted" id="detail-blurb"></p>
+          <dl id="detail-specs"></dl>
+        </section>
+      </aside>
+      <footer id="explode-dock" class="dock">
+        <div class="section-head"><span>拆解 <b id="explode-label">0%</b></span></div>
+        <label class="slider">
+          <input id="explode" type="range" min="0" max="100" value="0" aria-label="拆解进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" />
+        </label>
+        <div class="controls tight">
+          <button type="button" id="btn-assemble" class="btn">组装</button>
+          <button type="button" id="btn-explode" class="btn">完全拆解</button>
+        </div>
+        <div class="section-head steps-head"><span>分步</span></div>
+        <div id="steps" class="steps" role="group" aria-label="分步拆解"></div>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
